@@ -46,7 +46,7 @@ const requireAuth = expressJwt({
 
 const hasAuth = (req, res, next) => {
   const isAuth = req.profile && req.auth && req.profile._id == req.auth._id;
-  if (!auth)
+  if (!isAuth)
     return res
       .status(403)
       .json({ error: "You do not have permission to do that" });
